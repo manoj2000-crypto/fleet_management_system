@@ -18,7 +18,6 @@
 
         .divButton a {
             color: black;
-            /* Set the color of the links */
             text-decoration: none;
         }
 
@@ -89,6 +88,13 @@
         .btn-delete:hover {
             background-color: #bd2130;
         }
+
+        .img-circle {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 2px solid #000;
+        }
     </style>
     <script>
 
@@ -147,8 +153,12 @@
 <body>
     <div class="container">
         <div class="divButton">
-            <button type="button" class="btn btn-primary" onclick="openEditView('add')"> Add </button>
-            <button type="button" class="btn btn-success" onclick="downloadExcel()"> Download Excel Report </button>
+            <button type="button" class="btn btn-primary" onclick="openEditView('add')"> Add <img
+                    src="<?php echo base_url('resources/images/pen.png'); ?>" alt="edit_image" class="img-circle">
+            </button>
+            <button type="button" class="btn btn-success" onclick="downloadExcel()"> Download Excel Report <img
+                    src="<?php echo base_url('resources/images/excel.png'); ?>" alt="excel_image" class="img-circle">
+            </button>
         </div>
         <hr>
         <div class="divTable table-container">
@@ -209,10 +219,8 @@
                         <td>
                             <?= $row['Remarkindetails'] ?>
                         </td>
-                        <td> <a href="#" onclick="openEditView(<?= $row['id'] ?>)" class="btn btn-info"> Edit
-                            </a> </td>
-                        <td> <a href="#" onclick="confirmDelete(<?= $row['id'] ?>)" class="btn btn-delete"> Delete </a>
-                        </td>
+                        <td> <button type="button" class="btn btn-info" onclick="openEditView(<?= $row['id'] ?>)"> Edit <img src="<?php echo base_url('resources/images/pen.png'); ?>" alt="edit_image" class="img-circle"> </button> </td>
+                        <td> <button type="button" class="btn btn-delete" onclick="confirmDelete(<?= $row['id'] ?>)"> Delete <img src="<?php echo base_url('resources/images/bin.png'); ?>" alt="bin_image" class="img-circle"> </button> </td>
                     </tr>
                     <?php
                 }
