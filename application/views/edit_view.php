@@ -82,7 +82,7 @@
                 id="IncidentLocation" class="form-control"
                 value="<?= isset($incident['IncidentLocation']) ? $incident['IncidentLocation'] : '' ?>" required> <br>
 
-            <label for="incidenttime"> Incident Time </label> <input type="text" name="incidenttime" id="incidenttime"
+            <label for="incidenttime"> Incident Time </label> <input type="datetime-local" name="incidenttime" id="incidenttime"
                 class="form-control" value="<?= isset($incident['incidenttime']) ? $incident['incidenttime'] : '' ?>"
                 required> <br>
 
@@ -110,7 +110,7 @@
                 id="Correctiveaction" class="form-control"
                 value="<?= isset($incident['Correctiveaction']) ? $incident['Correctiveaction'] : '' ?>" required> <br>
 
-            <label for="WorkCompletedateandtime"> Work Complete Date And Time </label> <input type="text"
+            <label for="WorkCompletedateandtime"> Work Complete Date And Time </label> <input type="datetime-local"
                 name="WorkCompletedateandtime" id="WorkCompletedateandtime" class="form-control"
                 value="<?= isset($incident['WorkCompletedateandtime']) ? $incident['WorkCompletedateandtime'] : '' ?>"
                 required> <br>

@@ -80,7 +80,7 @@
             <label for="IncidentLocation"> Incident Location </label> <input type="text" name="IncidentLocation"
                 id="IncidentLocation" class="form-control" required> <br>
 
-            <label for="incidenttime"> Incident Time </label> <input type="text" name="incidenttime" id="incidenttime"
+            <label for="incidenttime"> Incident Time </label> <input type="datetime-local" name="incidenttime" id="incidenttime"
                 class="form-control" required> <br>
 
             <label for="AffectedPart"> Affected Part </label> <input type="text" name="AffectedPart" id="AffectedPart"
@@ -101,7 +101,7 @@
             <label for="Correctiveaction"> Corrective Action </label> <input type="text" name="Correctiveaction"
                 id="Correctiveaction" class="form-control" required> <br>
 
-            <label for="WorkCompletedateandtime"> Work Complete Date And Time </label> <input type="text"
+            <label for="WorkCompletedateandtime"> Work Complete Date And Time </label> <input type="datetime-local"
                 name="WorkCompletedateandtime" id="WorkCompletedateandtime" class="form-control" required> <br>
 
             <label for="Remarkindetails"> Remark in Details </label> <input type="text" name="Remarkindetails"
