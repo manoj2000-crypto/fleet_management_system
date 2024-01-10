@@ -73,6 +73,23 @@
 
     <script>
 
+        function isValidNumberInput(inputField) {
+            // Allow only numbers
+            var regex = /^[0-9]+$/;
+
+            return regex.test(inputField.value);
+        }
+
+        function validateNumberInputOnBlur(inputFieldId) {
+            var inputField = document.getElementById(inputFieldId);
+
+            if (!isValidNumberInput(inputField)) {
+                toastr.error('Invalid input. Only numbers are allowed.');
+            } else {
+                toastr.clear(); // Clear any existing toastr messages
+            }
+        }
+
         function isValidInput(inputField) {
             // Allow only letters, spaces, and underscores
             var regex = /^[A-Za-z\s_]+$/;
@@ -107,10 +124,37 @@
         }
 
         function validateForm() {
+            var incidentTypeValid = validateTextField('IncidentType');
+            var incidentLocationValid = validateTextField('IncidentLocation');
+            var affectedPartValid = validateTextField('AffectedPart');
+            
             var vehicleNumber = document.getElementById('Vehicleno').value;
+            var vehicleNumberValid = validateVehicleNumber(vehicleNumber);
+
+            var driverNameValid = validateTextField('DriverName');
+            var assignedPersonValid = validateTextField('Assignedperson');
+            var costtoIncidentValid = validateTextField('CosttoIncident');
+            var correctiveActionValid = validateTextField('Correctiveaction');
+            var RemarkindetailsValid = validateTextField('Remarkindetails');
+
+            if (incidentTypeValid && incidentLocationValid && affectedPartValid && vehicleNumberValid && driverNameValid && assignedPersonValid && costtoIncidentValid && correctiveActionValid && RemarkindetailsValid) {
+                toastr.clear(); 
+                return true; // Allow form submission
+            }
+            else {
+                return false; // Prevent form submission
+            }
 
             if (!validateVehicleNumber(vehicleNumber)) {
                 toastr.error('Invalid Vehicle Number');
+                return false; // Prevent form submission
+            } else {
+                toastr.clear(); // Clear any existing toastr messages
+                return true; // Allow form submission
+            }
+
+            if (!isValidNumberInput(costtoIncidentValid)) {
+                toastr.error('Invalid Cost To Incident. Only numbers are allowed.');
                 return false; // Prevent form submission
             } else {
                 toastr.clear(); // Clear any existing toastr messages
@@ -150,8 +194,8 @@
             <label for="Assignedperson"> Assigned Person </label> <input type="text" name="Assignedperson"
                 id="Assignedperson" class="form-control" oninput="validateTextFieldOnInput('Assignedperson')" required> <br>
 
-            <label for="CosttoIncident"> Cost To Incident </label> <input type="text" name="CosttoIncident"
-                id="CosttoIncident" class="form-control" oninput="validateTextFieldOnInput('CosttoIncident')" required> <br>
+            <label for="CosttoIncident"> Cost To Incident </label> <input type="number" name="CosttoIncident"
+                id="CosttoIncident" class="form-control" onblur="validateNumberInputOnBlur('CosttoIncident')" required> <br>
 
             <label for="Correctiveaction"> Corrective Action </label> <input type="text" name="Correctiveaction"
                 id="Correctiveaction" class="form-control" oninput="validateTextFieldOnInput('Correctiveaction')" required> <br>
