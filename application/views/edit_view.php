@@ -69,10 +69,8 @@
                 id="Remarkindetails" class="form-control" oninput="validateTextFieldOnInput('Remarkindetails')"
                 value="<?= isset($incident['Remarkindetails']) ? $incident['Remarkindetails'] : '' ?>" required> <br>
 
-            <button type="submit" class="btn btn-primary me-2 mb-2"> Update </button> 
-            <button type="reset" name="reset" value="reset" id="reset-btn" class="btn btn-secondary me-2 mb-2"> Reset </button> 
-            <br>
-
+            <button type="submit" class="btn btn-primary me-2 mb-2"> Update </button>
+            <button type="button" onclick="checkReset()" class="btn btn-secondary me-2 mb-2"> Reset </button> <br>
         </form>
     </div>
 </body>

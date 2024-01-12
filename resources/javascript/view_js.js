@@ -1,9 +1,18 @@
-document.getElementById("reset-btn").addEventListener("click", function (event) {
-    event.preventDefault();
-    const form = document.getElementById("formId");
-    form.reset();
+function checkReset()
+{
+	document.getElementById("IncidentType").value = '';
+    document.getElementById("IncidentLocation").value = '';
+    document.getElementById("incidenttime").value = '';
+    document.getElementById("AffectedPart").value = '';
+    document.getElementById("Vehicleno").value = '';
+    document.getElementById("DriverName").value = '';
+    document.getElementById("Assignedperson").value = '';
+    document.getElementById("CosttoIncident").value = '';
+    document.getElementById("Correctiveaction").value = '';
+    document.getElementById("WorkCompletedateandtime").value = '';
+    document.getElementById("Remarkindetails").value = '';
     toastr.clear();
-});
+}
 
 function isValidNumberInput(inputField) {
 	// Allow only numbers
