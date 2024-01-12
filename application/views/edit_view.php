@@ -22,7 +22,7 @@
     <hr>
     <div class="container">
         <form action="<?= base_url() ?>Vehical_Incident_Tracker/update_vit" method="post"
-            onsubmit="return validateForm()">
+            onsubmit="return validateForm()" id="formId">
             <input type="hidden" name="id" value="<?= isset($incident['id']) ? $incident['id'] : '' ?>">
             <label for="IncidentType"> Incident Type </label><input type="text" name="IncidentType" id="IncidentType"
                 class="form-control" oninput="validateTextFieldOnInput('IncidentType')"
@@ -69,7 +69,9 @@
                 id="Remarkindetails" class="form-control" oninput="validateTextFieldOnInput('Remarkindetails')"
                 value="<?= isset($incident['Remarkindetails']) ? $incident['Remarkindetails'] : '' ?>" required> <br>
 
-            <button type="submit" class="btn btn-primary"> Update </button> <br>
+            <button type="submit" class="btn btn-primary me-2 mb-2"> Update </button> 
+            <button type="reset" name="reset" value="reset" id="reset-btn" class="btn btn-secondary me-2 mb-2"> Reset </button> 
+            <br>
 
         </form>
     </div>

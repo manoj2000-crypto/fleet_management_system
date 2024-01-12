@@ -93,5 +93,26 @@ class Vehical_Incident_Tracker extends CI_Controller
         redirect('Vehical_Incident_Tracker/view');
     }
 
+    public function resetButton()
+    {
+        $data['action'] = 'update';
+        $data['incident'] = array(
+            'IncidentType' => "",
+            'IncidentLocation' => "",
+            'incidenttime' => "",
+            'AffectedPart' => "",
+            'Vehicleno' => "",
+            'DriverName' => "",
+            'Assignedperson' => "",
+            'CosttoIncident' => "",
+            'Correctiveaction' => "",
+            'WorkCompletedateandtime' => "",
+            'Remarkindetails' => "",
+        );
+        $this->load->view('edit_view', $data);
+        print_r($data);
+        exit();
+    }
+
 }
 ?>
