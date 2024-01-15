@@ -8,15 +8,11 @@ class Vehical_Incident_Tracker_Model extends CI_model
 
     public function get_data()
     {
-        $this->db->where('Status', 1); // Add this condition to fetch only active records
+        $this->db->where('Status', 1); // This condition is to fetch only active records
         $query = $this->db->get("incidenttracker");
 
         // Check if there is data
-        if ($query->num_rows() > 0) {
-            return $query->result_array();
-        } else {
-            return array(); // Return an empty array if there is no data
-        }
+        return $query->num_rows() > 0 ? $query->result_array() : array();
     }
 
     public function delete($id)
@@ -30,13 +26,7 @@ class Vehical_Incident_Tracker_Model extends CI_model
     {
         // Retrieve data for the specific incident using $id
         $query = $this->db->get_where('incidenttracker', array('id' => $id));
-
-        // Check if there is data
-        if ($query->num_rows() > 0) {
-            return $query->row_array();
-        } else {
-            return array(); // Return an empty array if there is no data
-        }
+        return $query->num_rows() > 0 ? $query->row_array() : array();
     }
 
     public function get_incident_id_by_data($data)
@@ -60,6 +50,5 @@ class Vehical_Incident_Tracker_Model extends CI_model
         $this->db->where('id', $id);
         $this->db->update('incidenttracker', $data);
     }
-
 }
 ?>

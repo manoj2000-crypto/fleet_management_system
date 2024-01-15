@@ -63,8 +63,8 @@
                 id="Remarkindetails" class="form-control" oninput="validateTextFieldOnInput('Remarkindetails')"
                 required> <br>
 
-            <button type="submit" class="btn btn-primary me-2 mb-2"> Add </button> 
-            <button type="reset" class="btn btn-secondary me-2 mb-2"> Reset </button> 
+            <button type="submit" class="btn btn-primary me-2 mb-2"> Add </button>
+            <button type="reset" class="btn btn-secondary me-2 mb-2"> Reset </button>
             <br>
 
         </form>

@@ -15,12 +15,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Vehical_Incident_Tracker extends CI_Controller
 {
-    public function view()
-    {
-        $data['lists'] = $this->Vehical_Incident_Tracker_Model->get_data();
-        $this->load->view('add_view', $data);
-    }
-
     public function new_view()
     {
         $this->load->view('new_view');
@@ -28,6 +22,7 @@ class Vehical_Incident_Tracker extends CI_Controller
 
     public function index()
     {
+        $this->load->model('Vehical_Incident_Tracker_Model');
         $data['lists'] = $this->Vehical_Incident_Tracker_Model->get_data();
         $this->load->view('add_view', $data);
     }
@@ -90,7 +85,7 @@ class Vehical_Incident_Tracker extends CI_Controller
             $this->Vehical_Incident_Tracker_Model->update($data, $id);
         }
 
-        redirect('Vehical_Incident_Tracker/view');
+        redirect('Vehical_Incident_Tracker/index');
     }
 }
 ?>
