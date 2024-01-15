@@ -1,28 +1,46 @@
+<!--
+    Name : Manoj Madhavrao Kale
+    Employee ID : PNA2525
+    File : View
+-->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap link -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <!--Toaster link-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    
+    <!-- custom css for this file.-->
     <link rel="stylesheet" href="<?= base_url() ?>./resources/css/edit_view_css.css">
 
+    <!--JQuery liabrary link-->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    
+    <!-- Toaster liabrary. -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    
+    <!-- javascript file for this file.-->
     <script src="<?= base_url() ?>./resources/javascript/view_js.js"></script>
 
     <title> Update </title>
 </head>
 
 <body>
-    <div class="divHeader">
-        <h2> Update </h2>
+    <div class="divHeader"> <!--header-->
+        <h2> Update </h2> 
     </div>
     <hr>
-    <div class="container">
+    <div class="container"> <!--Main container-->
+        <!-- This form is using post method of HTTPS to update the data. -->
         <form action="<?= base_url() ?>Vehical_Incident_Tracker/update_vit" method="post"
             onsubmit="return validateForm()" id="formId">
+            <!-- We use hidden type, to get the id before updaing the the values -->
+            <!-- it will take the values from POST and fetch and show it on individual text field. -->
             <input type="hidden" name="id" value="<?= isset($incident['id']) ? $incident['id'] : '' ?>">
             <label for="IncidentType"> Incident Type </label><input type="text" name="IncidentType" id="IncidentType"
                 class="form-control" oninput="validateTextFieldOnInput('IncidentType')"
@@ -69,7 +87,15 @@
                 id="Remarkindetails" class="form-control" oninput="validateTextFieldOnInput('Remarkindetails')"
                 value="<?= isset($incident['Remarkindetails']) ? $incident['Remarkindetails'] : '' ?>" required> <br>
 
+            <!-- Update button for submitting the data. -->
             <button type="submit" class="btn btn-primary me-2 mb-2"> Update </button>
+
+            <!-- 
+                Reset button for resetting the data from form,
+                Because it is fetching the data from POST array and shwoing into the text field,
+                it not resetting the value from HTML form , Thats why we use Custom javascript function,
+                that will mannually set the empty string for each text field.
+            -->
             <button type="button" onclick="checkReset()" class="btn btn-secondary me-2 mb-2"> Reset </button> <br>
         </form>
     </div>

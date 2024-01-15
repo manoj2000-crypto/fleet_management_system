@@ -1,3 +1,8 @@
+<!--
+    Name : Manoj Madhavrao Kale
+    Employee ID : PNA2525
+    File : View
+-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,12 +10,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!--Bbootstrap link -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <!-- Toaster liabrary-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    
+    <!-- Custom css for this file.-->
     <link rel="stylesheet" href="<?= base_url() ?>./resources/css/new_view_css.css">
 
+    <!-- Using jquery liabrary -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    
+    <!--
+        Toaster liabrary.
+    -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    
+    <!--This link is javascript fielinks.-->
     <script src="<?= base_url() ?>./resources/javascript/view_js.js"></script>
 
     <title> Add </title>
@@ -18,11 +35,16 @@
 </head>
 
 <body>
-    <div class="divHeader">
+    <div class="divHeader"> <!--Header-->
         <h2> Add </h2>
     </div>
-    <hr>
+    <hr> <!--Horiontal-->
     <div class="container">
+        <!-- 
+            Form for adding new incident into database , This is UI
+            using "POST" method of "HTTPS",onsubmit it will call the javascript function.
+            All the fields are require.
+        .-->
         <form action="<?= base_url() ?>Vehical_Incident_Tracker/add_vit" method="post" onsubmit="return validateForm()">
 
             <label for="IncidentType"> Incident Type </label><input type="text" name="IncidentType" id="IncidentType"
@@ -63,9 +85,12 @@
                 id="Remarkindetails" class="form-control" oninput="validateTextFieldOnInput('Remarkindetails')"
                 required> <br>
 
+            <!--Add button-->
             <button type="submit" class="btn btn-primary me-2 mb-2"> Add </button>
+            
+            <!-- Reset button to reset all the values from HTML_form -->
             <button type="reset" class="btn btn-secondary me-2 mb-2"> Reset </button>
-            <br>
+            <br> <!--Goto Next line-->
 
         </form>
     </div>
